@@ -6,6 +6,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+EXPOSE 80
 # See nginx container README that says where to save stuff. Also default CMD is already set
 COPY --from=builder /app/build /usr/share/nginx/html
 
