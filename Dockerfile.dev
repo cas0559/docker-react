@@ -1,0 +1,11 @@
+# specify base image
+FROM node:alpine
+# Prep for npm install container
+WORKDIR /usr/app
+COPY ./package.json ./
+# install some dependencies
+RUN npm install
+# COPY everything else
+COPY ./ ./
+# Default command
+CMD ["npm", "run", "start"]
